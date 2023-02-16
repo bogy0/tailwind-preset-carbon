@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import 'tailwindcss/tailwind.css';
+import '../style.scss';
 
 export default function App({ Component, pageProps }) {
   return <Component {...pageProps} />;

@@ -1,0 +1,15 @@
+@use '@carbon/type';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .body-01 {
+    @include type.type-style('productive-heading-01');
+  }
+
+  .heading-07 {
+    @include type.type-style('productive-heading-07');
+  }
+}
