@@ -5,7 +5,8 @@
     "build": "next build",
     "clean": "rimraf .next",
     "develop": "next",
-    "start": "next"
+    "start": "next",
+    "tailwind-config-viewer": "tailwind-config-viewer -o"
   },
   "dependencies": {
     "@carbon/colors": "^10.25.0",
@@ -20,6 +21,8 @@
     "tailwindcss": "latest"
   },
   "devDependencies": {
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "sass": "^1.58.1",
+    "tailwind-config-viewer": "^1.7.2"
   }
 }
