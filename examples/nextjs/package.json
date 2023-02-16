@@ -9,10 +9,7 @@
     "tailwind-config-viewer": "tailwind-config-viewer -o"
   },
   "dependencies": {
-    "@carbon/colors": "^10.25.0",
-    "@carbon/layout": "^10.24.0",
-    "@carbon/themes": "^10.34.0",
-    "@carbon/type": "^10.28.0",
+    "@carbon/type": "^11.15.0",
     "autoprefixer": "latest",
     "next": "^10.2.3",
     "postcss": "latest",

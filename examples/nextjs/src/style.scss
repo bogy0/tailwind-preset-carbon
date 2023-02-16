@@ -4,9 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+// Example how to add utility classes to Tailwind
 @layer utilities {
-  .body-01 {
-    @include type.type-style('productive-heading-01');
+  .body-02 {
+    @include type.type-style('body-02');
   }
 
   .heading-07 {
