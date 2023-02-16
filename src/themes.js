@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2021
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -7,38 +7,33 @@
 
 'use strict';
 
-const { themes, unstable__meta } = require('@carbon/themes');
+const { themes, unstable_metadata } = require('@carbon/themes');
 const merge = require('lodash.merge');
 const { formatToken } = require('./tokens');
 
-const extensions = {};
-
-for (const [key, theme] of Object.entries(themes)) {
-  extensions[key] = {
-    extend(config) {
-      const colors = {};
-
-      for (const [key, value] of Object.entries(theme)) {
-        if (isColorToken(key)) {
-          colors[formatToken(key)] = value;
-        }
-      }
-
-      return merge(config, {
-        theme: {
-          colors,
-        },
-      });
-    },
+function extend(config) {
+  const theme = {
+    colors: {},
   };
-}
 
-function isColorToken(key) {
-  return unstable__meta.colors.some((group) => {
-    return group.tokens.some((token) => {
-      return token === key;
-    });
+  for (const [themeName, themeData] of Object.entries(themes)) {
+    for (const [token, value] of Object.entries(themeData)) {
+      var themeAndTokenName = `${themeName}-${token}`;
+      if (isColorToken(token)) {
+        theme.colors[themeAndTokenName] = value;
+      }
+    }
+  }
+
+  return merge(config, {
+    theme,
   });
 }
 
-module.exports = extensions;
+function isColorToken(tokenName) {
+  return unstable_metadata.v11.some(obj => obj.name === formatToken(tokenName) && obj.type === 'color');
+}
+
+module.exports = {
+  extend,
+};
