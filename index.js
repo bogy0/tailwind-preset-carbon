@@ -8,10 +8,16 @@
 'use strict';
 
 const { apply } = require('./src/apply');
+const transition = require('./src/transition');
 const breakpoints = require('./src/breakpoints');
-const colors = require('./src/colors');
 const spacing = require('./src/spacing');
 const themes = require('./src/themes');
 const type = require('./src/type');
 
-module.exports = apply([breakpoints, colors, spacing, themes.white, type]);
+module.exports = apply([
+  breakpoints,
+  spacing,
+  themes,
+  transition,
+  type,
+]);
